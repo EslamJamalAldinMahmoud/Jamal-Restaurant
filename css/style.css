@@ -1,0 +1,671 @@
+/***** Fonts *****/
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* 
+font-family: 'Red Rose', cursive;
+font-family: 'Dancing Script', cursive;
+*/
+
+/* Variables */
+:root {
+  --main-color:#c79d44;
+  --dark-color:rgb(1, 14, 29);
+  --dark-light:rgb(9, 28, 53);
+  --white:#fff;
+  --dark-white:#ccc;
+  --shadow:0px 0px 20px -5px rgba(0, 0, 0, 1);
+  --trasition:all .3s ease;
+}
+/* Global Style */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+::after,
+::before {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-tap-highlight-color: transparent;
+  font-family: 'Poppins', sans-serif;
+  color: var(--white);
+  
+}
+.container {
+  max-width: 1170px;
+  margin: 0px auto;
+  overflow: hidden;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.min-height {
+  min-height: 100vh;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+.sec-padd {
+  padding: 80px 0px;
+  
+}
+section:hover .sec-title h2::after {
+  width: 100%;
+  left: 0%;
+}
+.sec-title {
+  color: var(--white);
+  width: 100%;
+  padding: 0px 15px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+.sec-title h2 {
+  font-size: 35px;
+  width: fit-content;
+  margin: 0px auto;
+  position: relative;overflow: hidden;
+}
+.sec-title h2::after {
+  display: block;
+  bottom: 0;
+  left: 50%;transition: var(--trasition);
+  position: absolute;
+  margin: 0px auto;
+  width: 0%;
+  height: 2px;
+  background: var(--white);
+  content: '';
+}
+.sec-title h2::before {
+  content: attr(data-title);
+  display: block;
+  font-size: 25px;
+  color: var(--main-color);
+  font-family: 'Dancing Script', cursive;
+}
+/* Header */
+.header {
+  padding: 12px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 199;
+}
+.header::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--dark-color);
+  box-shadow: var(--shadow);
+  z-index: -1;
+  transform: translateY(-100%);
+  transition: var(--trasition);
+}
+.header.sticky::before {
+  transform: translateY(0%);
+}
+.header .logo {
+  min-height: 35px;
+  padding: 0 15px;
+  align-items: center;
+  display: flex;
+  font-family: 'Dancing Script', cursive;
+}
+.header .logo i {
+  color: var(--main-color);
+  font-size: 25px;
+  margin-right: 10px;
+}
+.header .logo a {
+  text-decoration: none;
+  color: var(--white);
+}
+.header .nav-toggle {
+  height: 35px;
+  width: 45px;
+  margin-right: 20px;
+  cursor: pointer;
+  border: none;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  z-index: 2;
+}
+
+.header .nav-toggle .mid,
+.header .nav-toggle .top,
+.header .nav-toggle .bot {
+  width: 28px;
+  height: 3px;
+  display: block;
+  border-radius: 5px;
+  background: var(--white);
+  transition: var(--trasition);
+}
+.header .nav-toggle .top {
+  transform: translateY(-6px);
+}
+.header .nav-toggle .bot {
+  transform: translateY(6px);
+}
+.header .nav-toggle.active .mid {
+  opacity: 0;;
+}
+.header .nav-toggle.active .top {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.header .nav-toggle.active .bot {
+  transform: rotate(-45deg) translate(-1px, 0px);
+}
+.header .nav {
+  position: fixed;
+  top: 0;
+  right: 0px;
+  height: 100vh;
+  width: 200px;
+  background: rgba(1, 14, 29,.9);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  padding: 80px 0;
+  transition: var(--trasition);
+  transform: translateX(120%);
+  z-index: -5;
+}
+.header .nav.open {
+  transform: translateX(0%);
+}
+.header .nav ul {
+  padding: 0px 20px;
+  margin: 0;
+}
+.header .nav ul li {
+  background: transparent;
+  transition: var(--trasition);
+  margin: 30px 0;
+  width: 100%;
+}
+.header .nav ul li a {
+  display: block;
+  font-size: 22px;
+  color: var(--white);
+  text-transform: capitalize;
+  transition: var(--trasition);
+  transform: translateX(0px);
+  width:fit-content;
+  overflow: hidden;
+  padding-bottom: 5px;
+}
+.header .nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0%;
+  height: 2px;
+  background: var(--main-color);
+  transition: all .3s ease;
+}
+.header .nav ul li a:hover::after  {
+  left: 0%;width: 100%;
+}
+/***** Start Home Section *****/
+.home-section {
+  position: relative;
+  overflow: hidden;
+}
+.home-section .home-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.9)),url(../images/f5.png)no-repeat center center;
+  background-size: cover;
+  animation: zoom 15s ease-in-out infinite 2s;
+}
+@keyframes zoom {
+  0%,100% {
+    transform: scale(1),translate(10px);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+.home-section .min-height {
+  padding: 100px 0;
+}
+.home-section .home-text {
+  padding: 0px 15px;
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+  z-index: 2;
+}
+.home-section .home-text h1 {
+  font-size: 50px;
+  color: var(--white);
+  font-family: 'Dancing Script', cursive;
+}
+.home-section .home-text p {
+  color: var(--dark-white);
+  font-size: 17px;
+  margin-bottom: 30px;
+  font-family: 900;
+}
+
+
+/*********** Start About Us **************/
+.about-section {
+  background: var(--dark-light);
+}
+.about-section .about-text,
+.about-section .about-img {
+  width: 50%;
+  padding: 0 15px;
+}
+.about-section .about-text h3 {
+  font-size: 30px;
+  margin: 0 0 15px;
+  color: var(--white);
+}
+.about-section .about-text p {
+  margin: 0 0 15px;
+  color: var(--dark-white);
+}
+.about-section .about-text p:last-of-type {
+  margin: 0 0 35px;
+}
+.about-section .about-img .img-box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  overflow: hidden;
+}
+.about-section .about-img .img-box .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: rgba(1, 14, 29, 0.2);
+  display: block;
+}
+.about-section .about-img .img-box h3 {
+  position: absolute;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  font-size: 35px;
+  color: var(--main-color);
+  text-shadow: 0px 3px 3px rgb(0, 0, 0);
+  font-weight: bold;
+  z-index: 22;
+  display: none;
+}
+.about-section .about-img .img-box img{
+  width: 100%;
+  border-radius: 10px;
+  height: 100%;
+}
+/********** Start Section Menu *************/
+.menu-section {
+  background: var(--dark-color);
+}
+.menu-section .sec-title {
+  margin-bottom: 40px;
+}
+.menu-section .menu-tabs {
+  width: 100%;
+  padding: 0 15px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.menu-section .menu-tabs .menu-tab-item {
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 0 10px 10px;
+  color: var(--white);
+  transition: color .3s ease;
+  display: inline-block;
+}
+.menu-section .menu-tabs .menu-tab-item.active,
+.menu-section .menu-tabs .menu-tab-item:hover {
+  color: var(--main-color);
+}
+.menu-section .menu-tab-content {
+  display: none;
+}
+.menu-section .menu-tab-content.active {
+  display: flex;
+}
+.menu-section .menu-item {
+  width: calc(50% - 10px);
+  padding: 20px 15px;
+  text-transform: capitalize;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: var(--trasition);
+  position: relative;
+  margin: 5px ;
+}
+.menu-section .menu-item::after {
+  content: '';
+  width: 95%;
+  bottom: 0;
+  left: 2.5%;
+  position: absolute;
+  transition: var(--trasition);
+  border-bottom: 3px dashed var(--dark-light);
+}
+.menu-section .menu-item:hover.menu-item::after {
+  border-bottom: 3px solid var(--dark-light);
+}
+.menu-section .menu-item .menu-item-title{
+  display: flex;
+  align-items: center;
+  max-width: calc(100% - 80px);
+}
+.menu-section .menu-item .menu-item-title img {
+  max-width: 90px;
+  margin-right: 15px;
+  border-radius: 8px;
+}
+.menu-section .menu-item .menu-item-title h3 {
+  font-size: 16px;
+  transition: color .3s ease;
+  
+}
+.menu-section .menu-item:hover h3 {
+  color: var(--main-color);
+}
+.menu-section .menu-item .price {
+  font-size: 16px;
+  color: var(--main-color);
+  font-weight: 500;
+  font-family: 'Dancing Script', cursive;
+  transition: color .3s ease;
+}
+.menu-section .menu-item:hover .price {
+  color: var(--white);
+}
+
+/************** Start Section Testimonials ****************/
+.testimonials-section {
+  background: var(--dark-color);
+  padding-bottom: 50px;
+}
+.testimonials-section .testi-item {
+  width: calc((100% / 3) - 30px);
+  margin: 0 15px 30px;
+  padding: 30px;
+  border-radius: 8px;
+  transition: var(--trasition);
+  box-shadow: 0px 0px 15px 2px #000;
+  color: var(--dark-white);
+  border: 2px solid rgba(255, 255, 255, .1);
+}
+.testimonials-section .testi-item:hover {
+  background: var(--main-color);
+  color: var(--dark-light);
+}
+.testimonials-section .testi-item .testi-author {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.testimonials-section .testi-item .testi-author h3 {
+  font-size: 16px;
+  text-transform: capitalize;
+  margin: 0 0 3px;
+}
+.testimonials-section .testi-item .testi-author span {
+  display: block;
+  font-size: 14px;
+}
+.testimonials-section .testi-item .testi-author img {
+  max-width: 70px;
+  max-height: 70px;
+  border-radius: 50%;
+  box-shadow: var(--shadow);
+  border: 3px solid var(--dark-light);
+  transition: var(--trasition);
+}
+.testimonials-section .testi-item:hover .testi-author img {
+  border-color: transparent
+}
+.testimonials-section .testi-item p {
+  margin: 15px 0;
+}
+.testimonials-section .testi-item .rating i {
+  font-size: 16px;
+  color: var(--main-color);
+  transition: var(--trasition);
+}
+.testimonials-section .testi-item:hover .rating i {
+  color: var(--dark-light);
+}
+
+/*************** Start Chefs Section ****************/
+.chefs-section {
+  background: var(--dark-color);
+}
+.chefs-section .container {
+  padding: 0px 0px 35px;
+}
+.chefs-section .team-item {
+  width: calc(100% / 3);
+  padding: 15px;
+  text-align: center;
+  position: relative;
+}
+.chefs-section .team-item img {
+  width: 100%;
+  height: 450px;
+  border-radius: 8px;
+  transition: all .3s ease;
+  padding: 20px 20px 0px;
+}
+.chefs-section .team-item:nth-of-type(1) img {
+  background-color: rgb(88, 76, 134);
+}
+.chefs-section .team-item:nth-of-type(2) img {
+  background-color: rgb(228, 220, 199);
+}
+.chefs-section .team-item:nth-of-type(3) img {
+  background-color: rgb(255, 197, 197);
+}
+.chefs-section .team-item .team-item-info {
+  background: var(--dark-light);
+  border-radius: 8px;
+  left: 30px;
+  right: 30px;
+  transform: translateY(-50%);
+  padding: 15px;
+  position: absolute;
+  transition: all .3s ease;
+}
+.chefs-section .team-item:hover .team-item-info {
+  background: var(--main-color);
+  transform:  translateY(-200%); 
+}
+.chefs-section .team-item .team-item-info h3 {
+  font-size: 18px;
+  margin: 0 0 10px;
+}
+.chefs-section .team-item .team-item-info p {
+  font-size: 16px;
+  color: var(--dark-white);
+}
+
+/****************** Start Footer Sction ****************/
+.footer-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)),url(../images/f2.jpg)no-repeat center center fixed;
+  background-size: cover;
+  padding: 40px 0px 0;
+}
+.footer-section .footer-items {
+  width: calc(100% / 3);
+  padding: 0 15px;
+  text-align: center;
+}
+.footer-section .footer-items.info {
+  margin-top: 50px;
+}
+.footer-section .footer-items h3 {
+  font-size: 22px;
+  margin: 0px 0px 15px;
+}
+.footer-section .footer-items p {
+  line-height: 30px;
+}
+.footer-section .footer-items .social-links {
+  margin-top: 15px;
+}
+.footer-section .footer-items .social-links a {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  align-items: center;
+  color: var(--dark-white);
+  justify-content: center;
+  transition: var(--trasition);
+}
+.footer-section .footer-items .social-links a:hover {
+  color: var(--main-color);
+}
+.footer-section .copyright {
+  padding: 25px 15px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  margin: 60px 0 0;
+  position: relative;
+}
+.footer-section .copyright::before {
+  content: '';
+  width: 100%;
+  height: 1px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0%;
+  background: var(--dark-white);
+  transition: var(--trasition);
+}
+
+/******* Buttons ********/
+.btn-defult {
+  color: var(--main-color);
+  text-transform: capitalize;
+  background:transparent;
+  transition: all .5s ease;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: 900;
+  font-family: 'Dancing Script', cursive;
+  font-size: 22px;
+  border: 2px solid var(--main-color);
+}
+.btn-defult:hover {
+  background: var(--main-color);
+  color: var(--white);
+}
+
+/********************** Responsive **********************/
+/*******************************************************/
+@media(max-width:991px){
+  /** Testimonials **/
+  .testimonials-section .testi-item {
+    width: calc(50% - 30px);
+  }
+  /** Team **/
+  .chefs-section .team-item {
+    width: 50%;
+  }
+  .chefs-section .team-item:not(:last-of-type) {
+    margin-bottom: 30px;
+  }
+}
+@media(max-width:767px){
+  /** home **/
+  .home-section .home-text h1 {
+    font-size: 40px;
+    line-height: 65px;
+  }
+  /** about **/
+  .about-section .about-text h3 {
+    font-size: 22px;
+  }
+  .about-section .about-text,
+  .about-section .about-img {
+    width: 100%;
+  }
+  .about-section .about-img {
+    margin-top: 40px;
+  }
+  .about-section .about-text p {
+    margin: 0 0 10px;
+  }
+  .about-section .about-text p:last-of-type {
+    margin: 0 0 25px;
+  }
+  /** Menu **/
+  .menu-section .menu-item {
+    width: calc(100% - 10px);
+  }
+  /** Testimonials **/
+  .testimonials-section .testi-item {
+    width: calc(100% - 30px);
+  }
+  /** Team **/
+  .chefs-section .team-item {
+    width: 100%;
+  }
+  /** Footer **/
+  .footer-section .footer-items {
+    width: 100%;
+    margin-top: 30px;
+  }
+  
+.footer-section .footer-items.info {
+  margin-top: 30px;
+}
+.footer-section .footer-items h3 {
+    font-size: 22px;
+    margin: 0px;
+  }
+}
